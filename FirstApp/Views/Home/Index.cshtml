@@ -8,13 +8,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+	<title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+	<link href="~/Content/bootstrap-theme.css" rel="stylesheet"/>
+	<style>
+		body {background-color: #f1f1f1}
+		.btn a {color: white; text-decoration: none}
+	</style>
 </head>
 <body>
-<div>
+<div class="text-center">
 	<h1>Zostałeś zaproszony na imprezke u króla Albanii</h1>
 
-	<div>
+	<div class="btn btn-success">
 		@Html.ActionLink("Odpowiedz na zaproszenie","RsvpForm")
 	</div>
 </div>

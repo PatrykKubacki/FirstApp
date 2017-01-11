@@ -11,18 +11,38 @@
 <head>
 	<meta name="viewport" content="width=device-width"/>
 	<title>Thanks</title>
+	<link rel="stylesheet" href="~/Content/bootstrap.css" />
+	<link rel="stylesheet" href="~/Content/bootstrap-theme.css" />
+	<style>
+		body {background-color: #f1f1f1}
+		#error {color: red}
+	</style>
 </head>
-<body>
-<div>
+<body >
+<div class="text-center">
+	@{
+		try {
+			WebMail.EnableSsl = true;
+			WebMail.From = "";
+			WebMail.Password = "";
+			WebMail.SmtpPort = 587;
+			WebMail.SmtpServer = "poczta.o2.pl";
+			WebMail.UserName = "";
+			
+			WebMail.Send("","",Model.Name + ((Model.WillAttend ?? false)?"":"nie")+ " bedzie");
+		}
+		catch (Exception ex) {
+			<div id="error">@ex.Message</div>
+		}
+
+
+	}
 	<h1>Dzieki ze odpowiedziales @Model.Name</h1>
 
 	@{
-		if (Model.WillAttend == true) 
-		{
+		if (Model.WillAttend == true) {
 			<div>Fajnie ze bedziesz ziomeczku</div>
-		}
-		else
-		{
+		} else {
 			<div> Szkoda ze nie bedzie Ciebie przyjacielu</div>
 		}
 	}
