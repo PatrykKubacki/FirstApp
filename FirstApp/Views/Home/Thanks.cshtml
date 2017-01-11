@@ -1,0 +1,31 @@
+﻿@using FirstApp.Models
+@model GuestResponse
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Thanks</title>
+</head>
+<body>
+<div>
+	<h1>Dzieki ze odpowiedziales @Model.Name</h1>
+
+	@{
+		if (Model.WillAttend == true) 
+		{
+			<div>Fajnie ze bedziesz ziomeczku</div>
+		}
+		else
+		{
+			<div> Szkoda ze nie bedzie Ciebie przyjacielu</div>
+		}
+	}
+</div>
+</body>
+</html>

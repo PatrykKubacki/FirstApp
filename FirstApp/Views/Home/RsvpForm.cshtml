@@ -1,0 +1,53 @@
+﻿@model FirstApp.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+	<title>RsvpForm</title>
+<link type="text/css" rel="stylesheet" href="~/Content/Style.css">
+</head>
+<body>
+<div>
+	@using (Html.BeginForm()) {
+		@Html.ValidationSummary()
+		<div>
+			<label>imie </label>
+			<div>
+				@Html.TextBoxFor(x => x.Name)
+			</div>
+		</div>
+
+		<div>
+			<label>Email </label>
+			<div>
+				@Html.TextBoxFor(x => x.Email)
+			</div>
+		</div>
+
+		<div>
+			<label>Phone </label>
+			<div>
+				@Html.TextBoxFor(x => x.Phone)
+			</div>
+		</div>
+
+		<div>
+			<p>czy sie pojawisz?</p>
+			<div>
+				@Html.DropDownListFor(x=>x.WillAttend,new[] {
+				 new SelectListItem { Text = "Tak bede",Value = bool.TrueString},
+				 new SelectListItem { Text = "sorki nie",Value = bool.FalseString},
+				},"Odpowiedz")
+			</div>
+		</div>
+		<input type="submit" value="Odpowiadam"/>
+	}
+</div>
+</body>
+</html>
